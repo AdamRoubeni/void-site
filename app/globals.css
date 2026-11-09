@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background: #050505;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: rgba(232, 181, 77, 0.35);
+}
+
+/* ——— Scroll reveals ——— */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ——— Section tag pill (Opal's "Focus Rules ®" chip) ——— */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #e6e6e6;
+  backdrop-filter: blur(10px);
+}
+
+/* ——— Glass panel ——— */
+.glass {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ——— Flowing gold on the tagline ——— */
+@keyframes goldflow {
+  0%,
+  100% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+}
+.goldflow {
+  background-image: linear-gradient(90deg, #d9a441 0%, #f6d689 45%, #e8b54d 85%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldflow 7s ease-in-out infinite;
+}
+
+/* ——— Silver gradient figure (Opal's "1h 23m") ——— */
+.silver {
+  background-image: linear-gradient(180deg, #ffffff 0%, #d7d7d7 45%, #6d6d6d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ——— Phone float ——— */
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--tilt, 0deg));
+  }
+  50% {
+    transform: translateY(-12px) rotate(var(--tilt, 0deg));
+  }
+}
+.floaty {
+  animation: floaty 8s ease-in-out infinite;
+}
+
+/* ——— Marquees ——— */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.marquee-left {
+  animation: marquee-left var(--dur, 60s) linear infinite;
+}
+.marquee-right {
+  animation: marquee-right var(--dur, 60s) linear infinite;
+}
+.marquee-pause:hover .marquee-left,
+.marquee-pause:hover .marquee-right {
+  animation-play-state: paused;
+}
+
+/* ——— Hero video ——— */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  filter: brightness(0.62) saturate(1.05);
+}
+@keyframes slowzoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+.hero-media {
+  animation: slowzoom 26s ease-in-out infinite;
+  transform-origin: 50% 45%;
+}
+
+/* ——— Word lighting (scroll-driven) ——— */
+.word {
+  color: rgba(255, 255, 255, 0.22);
+  transition: color 0.25s linear;
+}
+.word-lit {
+  color: #ffffff;
+}
+
+/* ——— Reduced motion: everything settled ——— */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .goldflow,
+  .floaty,
+  .marquee-left,
+  .marquee-right,
+  .hero-media {
+    animation: none;
+  }
+}
+
+/* ——— Guide pages: long-form text, server-rendered ——— */
+.guide h2 {
+  margin-top: 2.75rem;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.guide h3 {
+  margin-top: 1.75rem;
+  font-size: 18px;
+  font-weight: 600;
+}
+.guide p,
+.guide li {
+  margin-top: 0.9rem;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #c9c9c9;
+}
+.guide ol,
+.guide ul {
+  padding-left: 1.4rem;
+}
+.guide ol {
+  list-style: decimal;
+}
+.guide ul {
+  list-style: disc;
+}
+.guide li {
+  margin-top: 0.6rem;
+  padding-left: 0.2rem;
+}
+.guide li::marker {
+  color: #e8d5a8;
+}
+.guide a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.25);
+  text-underline-offset: 4px;
+}
+.guide a:hover {
+  text-decoration-color: rgba(255, 255, 255, 0.7);
+}
+.guide strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+.guide .note {
+  margin-top: 1.25rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 1rem 1.25rem;
+}
+.guide .note p {
+  margin-top: 0;
+  font-size: 15px;
+}
+.guide kbd {
+  font-family: inherit;
+  font-size: 0.95em;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
