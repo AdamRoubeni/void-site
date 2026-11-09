@@ -1,12 +1,9 @@
 # Void — marketing site
 
-![Next.js](https://img.shields.io/badge/Next.js_14-000000?logo=nextdotjs&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js_14-000000?logo=nextdotjs&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white)
 
 Source for **[voidbetfree.com](https://voidbetfree.com)**, the website for
-[Void](https://voidbetfree.com), an iOS and Android app that blocks sportsbook
+[Void](https://voidbetfree.com), an iPhone app (Android in testing) that blocks sportsbook
 apps and helps people quit sports betting.
 
 ## Highlights
